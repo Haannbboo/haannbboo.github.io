@@ -1,5 +1,9 @@
 ---
-layout: post
+layout: project
+title: "Idunno: Distributed Inferencer"
+data: 2023-11-02 11:05:00 -0500
+categories: [Project]
+tags: [distributed]
 ---
 
 <style>
@@ -15,8 +19,6 @@ figcaption {
   text-align: center;
 }
 </style>
-
-# Idunno: Distributed Inferencer
 
 This project implements a distributed inferencer that is fault-tolerant and ~~scalable~~. 
 It offers group membership, distributed storage, and job scheduling. 
