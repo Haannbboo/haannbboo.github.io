@@ -1,9 +1,9 @@
 ---
 layout: project
+author: hanbo
 title: "Idunno: Distributed Inferencer"
-data: 2023-11-02 11:05:00 -0500
-categories: [Project]
-tags: [distributed]
+date: 2023-11-02 11:05:00 -0500
+tags: [uiuc-mp, distributed-systems]
 ---
 
 <style>

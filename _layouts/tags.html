@@ -5,18 +5,34 @@ layout: page
 
 <div id="tags" class="d-flex flex-wrap mx-xl-2">
   {% assign tags = '' | split: '' %}
+
+  {% for post in site.projects %}
+    {% for t in post.tags %}
+      {% assign tags = tags | push: t %}
+    {% endfor %}
+  {% endfor %}
+
   {% for t in site.tags %}
     {% assign tags = tags | push: t[0] %}
   {% endfor %}
 
-  {% assign sorted_tags = tags | sort_natural %}
+  {% assign sorted_tags = tags | sort_natural | uniq %}
 
   {% for t in sorted_tags %}
     <div>
       <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
         {{ t -}}
-        <span class="text-muted">{{ site.tags[t].size }}</span>
+        <span class="text-muted">
+          {% assign tag_count = 0 %}
+          {% for post in site.projects %}
+            {% if post.tags contains t %}
+              {% assign tag_count = tag_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          {{ tag_count }}
+        </span>
       </a>
     </div>
   {% endfor %}
+
 </div>
