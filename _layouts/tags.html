@@ -20,7 +20,7 @@ layout: page
 
   {% for t in sorted_tags %}
     <div>
-      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '.html' | relative_url }}">
         {{ t -}}
         <span class="text-muted">
           {% assign tag_count = 0 %}

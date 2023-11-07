@@ -134,6 +134,8 @@ collections:
   projects:
     output: true
     sort_by: order
+  tags:
+    output: true
     
 
 defaults:
