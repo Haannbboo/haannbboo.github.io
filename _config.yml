@@ -16,7 +16,7 @@ timezone:
 
 title: Hanbo Guo # the main title
 
-tagline: BS/MCS student @ UIUC # it will display as the sub-title
+tagline: BS student @ UIUC CS # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
