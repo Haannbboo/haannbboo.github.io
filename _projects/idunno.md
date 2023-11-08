@@ -4,6 +4,9 @@ author: hanbo
 title: "Idunno: Distributed Inferencer"
 date: 2023-11-02 11:05:00 -0500
 tags: [uiuc-mp, distributed-systems]
+image:
+  path: /assets/img/projects/idunno_system.jpg
+  alt: System Overview of Idunno Distributed Inferencer
 ---
 
 <style>
