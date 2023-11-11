@@ -46,7 +46,7 @@ figcaption {
   content: "\2212";
 }
 
-.content {
+.collapsible-content {
   padding: 0 18px;
   max-height: 0;
   overflow: hidden;
@@ -76,7 +76,7 @@ With given camera MAC address and channel information, localize a hidden camera 
 <small> Existing works proposed reliable method for obtaining MAC address and channel information. More on [this paper](https://www.usenix.org/system/files/sec22-sharma-rahul.pdf)</small>
 
 <button class="collapsible">Background knownledge just in case</button>
-<div class="content">
+<div class="collapsible-content">
   <ul>
     <li>RSSI: received signal strength indicator. Available in Wi-Fi radio packet header. Stronger the Wi-Fi signal, higher the RSSI. </li>
   </ul>

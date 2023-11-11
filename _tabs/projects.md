@@ -28,6 +28,7 @@ I hope this page makes my projects more approachable/readable than a resume/CV. 
 * Indoor position tracking with Step-Acceleration fusion, IMU-RSSI fusion
 * Localization using spatial interpolation
 * Read our [report](https://drive.google.com/file/d/1VsGQ1eGaHJxZhUUWjyOTj2XSeIm56rKE/view?usp=sharing)
+* [More information](/projects/rssi/)
 <figure>
   <img src="/assets/img/projects/rssi/overview.png" alt="Trulli" style="width:100%">
   <figcaption>System Overview</figcaption>
