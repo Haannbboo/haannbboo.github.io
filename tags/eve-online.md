@@ -1,6 +1,6 @@
 ---
 layout: tag
-tag: eve_online
-title: eve_online
+tag: eve-online
+title: eve-online
 robots: noindex
 ---

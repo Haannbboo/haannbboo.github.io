@@ -2,7 +2,7 @@
 layout: project
 author: hanbo
 title: "esi_requests"
-tags: [eve_online, data]
+tags: [eve-online, data]
 ---
 
 <style>
