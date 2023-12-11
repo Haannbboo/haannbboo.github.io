@@ -18,69 +18,24 @@ figcaption {
   padding: 2px;
   text-align: center;
 }
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
 
-.active, .collapsible:hover {
-  background-color: #555;
-}
-
-.collapsible:after {
-  content: '\002B';
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.collapsible-content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-}
 </style>
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
-}
-</script>
 
 With given camera MAC address and channel information, localize a hidden camera in an unfamiliar environment.
 
 <small> Existing works proposed reliable method for obtaining MAC address and channel information. More on [this paper](https://www.usenix.org/system/files/sec22-sharma-rahul.pdf)</small>
 
-<button class="collapsible">Background knownledge just in case</button>
-<div class="collapsible-content">
+<details>
+  <summary>
+    Background knownledge just in case
+    <span class="icon">👇</span>
+  </summary>
   <ul>
     <li>RSSI: received signal strength indicator. Available in Wi-Fi radio packet header. Stronger the Wi-Fi signal, higher the RSSI. </li>
+    <li>Hidden camera: usually streaming packets when motion is detected -> high RSSI values</li>
+    <li>RSSI is very coarse: reflections from other objects might interfer with rssi readings</li>
   </ul>
-</div>
+</details>
 
 ### **Experiment Setup**
 
@@ -130,11 +85,13 @@ The *Post-processing Module* and *Localization Module* run seperatively after da
 #### Data Collection
 
 * RSSI: We run a packet sniffer on the Raspberry Pi, collecting only packets from the known camera's MAC address. 
+* IMU: real-time IMU data
+* Orientation: pull joystick when turning (so only 90 or 180 degree turning)
 
 
 #### Step Detection
 
-Uses IMU acceleration data (all xyz axis), plus a Butterworth filter, plus `find_peaks`. Then linearly interpolate step magnitudes (acceleration magnitude) to step sizes:
+Uses IMU acceleration data (all xyz axis), plus a Butterworth filter, plus `find_peaks` from scipy. Then linearly interpolate step magnitudes (acceleration magnitude) to step sizes:
 > A 1.2m step has higher acceleration peak compared to a 0.3m step
 
 <figure>
@@ -147,7 +104,7 @@ Uses IMU acceleration data (all xyz axis), plus a Butterworth filter, plus `find
 Steps + orientation gives coarse routes in the room. Some other IMU-Step fusion and interpolation are used to fill the voids between each steps. See our [report](https://drive.google.com/file/d/1VsGQ1eGaHJxZhUUWjyOTj2XSeIm56rKE/view?usp=sharing) for more details.
 
 <figure>
-  <img src="/assets/img/projects/rssi/data.png" alt="Trulli" style="width:100%">
+  <center><img src="/assets/img/projects/rssi/data.png" alt="Trulli" style="width:100%"></center>
   <figcaption>IMU-based positioning with RSSI for spatial interpolation</figcaption>
 </figure>
 
@@ -155,4 +112,21 @@ We assign RSSI values to each positioning coordinate (x, y). Then we use spatial
 
 #### Localization
 
-Intuition tells the hidden camera is on the middle right of the room.
+Intuition tells the hidden camera is on the middle right of the room, which it is!
+
+We use a combination of three methods:
+
+* **Max RSSI**: take the point with maximum RSSI value
+* **Grid RSSI**: grid-based max rssi, take the grid with maximum average RSSI
+* **Spatial RSSI**: spatial interpolation + curve fit, find max
+
+<figure>
+  <center><img src="/assets/img/projects/rssi/localization.png" alt="Trulli" style="width:80%"></center>
+  <figcaption>Localization result</figcaption>
+</figure>
+
+The true label is very close to *max rssi* label. In case when there is no line-of-sight between the camera and the receiver, *spatial rssi* is more accurate because it takes into account the spatial distribution of RSSI values.
+
+### Experiment Result
+
+In an office setup (around 4m * 8m), we achieved **< 2m** localization error. This is still useful in finding hidden cameras in real-world scenarios. Also note that we only have **1 minute** of data collection, which in real-world scenarios, we can collect data for longer time and achieve better results.
