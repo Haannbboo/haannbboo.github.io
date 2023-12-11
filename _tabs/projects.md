@@ -24,6 +24,12 @@ figcaption {
 
 I hope this page makes my projects more approachable/readable than a resume/CV. Also a place for smaller and older projects that might be forgotten.
 
+## **esi_requests: requests for EVE-Online**
+* **requests** stlye API wrapper for EVE-Online's [ESI API](https://esi.evetech.net/ui/)
+* Built-in asyncio support, caching, OAuth2 SSO, ETag, and more
+* Open source on [Github](https://github.com/evetools-dev/esi_requests)
+* [More information](/projects/esi_requests/)
+
 ## **RSSI-based Camera Localization**
 * Indoor position tracking with Step-Acceleration fusion, IMU-RSSI fusion
 * Localization using spatial interpolation
