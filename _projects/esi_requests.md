@@ -3,6 +3,7 @@ layout: project
 author: hanbo
 title: "esi_requests"
 tags: [eve-online, data]
+categories: [EVE-Online, Infrastructure Tools]
 ---
 
 <style>

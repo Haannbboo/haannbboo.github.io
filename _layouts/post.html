@@ -74,6 +74,25 @@ tail_includes:
         {% include read-time.html content=content prompt=true lang=lang %}
       </div>
       <!-- .d-flex -->
+
+      <div class="d-flex justify-content-between">
+        <!-- tags -->
+        {% if page.tags.size > 0 %}
+        <div class="post-tags">
+          <i class="fa fa-tags fa-fw me-1"></i>
+          {% for tag in page.tags %}
+            <a
+              href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}.html"
+              class="post-tag no-text-decoration"
+            >
+              {{- tag -}}
+            </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <!-- .d-flex -->
+      
     </div>
     <!-- .post-meta -->
   </header>
@@ -84,7 +103,7 @@ tail_includes:
 
   <div class="post-tail-wrapper text-muted">
     <!-- categories -->
-    {% if page.categories.size > 0 %}
+    <!-- {% if page.categories.size > 0 %}
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         {% for category in page.categories %}
@@ -92,10 +111,10 @@ tail_includes:
           {%- unless forloop.last -%},{%- endunless -%}
         {% endfor %}
       </div>
-    {% endif %}
+    {% endif %} -->
 
     <!-- tags -->
-    {% if page.tags.size > 0 %}
+    <!-- {% if page.tags.size > 0 %}
       <div class="post-tags">
         <i class="fa fa-tags fa-fw me-1"></i>
         {% for tag in page.tags %}
@@ -107,7 +126,7 @@ tail_includes:
           </a>
         {% endfor %}
       </div>
-    {% endif %}
+    {% endif %} -->
 
     <div
       class="
