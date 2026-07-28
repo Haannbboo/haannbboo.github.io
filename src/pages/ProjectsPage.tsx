@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Container,
   Heading,
   Text,
   SimpleGrid,
-  HStack,
-  Button,
   Box,
   VStack,
 } from '@chakra-ui/react';
@@ -16,17 +14,8 @@ import { motion } from 'framer-motion';
 const MotionBox = motion(Box);
 
 export const ProjectsPage: React.FC = () => {
-  const [activeTag, setActiveTag] = useState<string>('All');
-
-  const allTags = ['All', ...Array.from(new Set(PROJECTS_DATA.flatMap((p) => p.tags)))];
-
-  const filteredProjects =
-    activeTag === 'All'
-      ? PROJECTS_DATA
-      : PROJECTS_DATA.filter((p) => p.tags.includes(activeTag));
-
   return (
-    <Container maxW="6xl" py={10}>
+    <Container maxW="6xl" px={{ base: 4, md: 6 }} py={10}>
       <MotionBox
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -41,25 +30,8 @@ export const ProjectsPage: React.FC = () => {
           </Text>
         </VStack>
 
-        {/* Tag Filter Bar */}
-        <HStack spacing={2} mb={8} overflowX="auto" py={2} w="full">
-          {allTags.map((tag) => (
-            <Button
-              key={tag}
-              size="sm"
-              borderRadius="full"
-              variant={activeTag === tag ? 'solid' : 'outline'}
-              colorScheme={activeTag === tag ? 'brand' : 'gray'}
-              onClick={() => setActiveTag(tag)}
-            >
-              {tag === 'All' ? 'All' : `#${tag}`}
-            </Button>
-          ))}
-        </HStack>
-
-        {/* Projects Grid */}
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
-          {filteredProjects.map((project) => (
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
+          {PROJECTS_DATA.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </SimpleGrid>

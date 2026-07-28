@@ -5,7 +5,6 @@ import {
   Box,
   Heading,
   Text,
-  Tag,
   HStack,
   VStack,
   Button,
@@ -50,7 +49,7 @@ export const ProjectDetailPage: React.FC = () => {
   }
 
   return (
-    <Container maxW="4xl" py={10}>
+    <Container maxW="4xl" px={{ base: 4, md: 6 }} py={10}>
       <MotionBox
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -87,14 +86,6 @@ export const ProjectDetailPage: React.FC = () => {
           boxShadow="0 10px 30px rgba(0,0,0,0.05)"
         >
           <VStack align="flex-start" spacing={4}>
-            <HStack spacing={2} wrap="wrap">
-              {project.tags.map((tag) => (
-                <Tag key={tag} size="md" colorScheme="brand" variant="subtle" borderRadius="full">
-                  #{tag}
-                </Tag>
-              ))}
-            </HStack>
-
             <Heading as="h1" size="2xl" letterSpacing="tight">
               {project.title}
             </Heading>

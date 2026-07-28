@@ -7,7 +7,6 @@ import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
-import { PostsPage } from './pages/PostsPage';
 
 export const App: React.FC = () => {
   return (
@@ -21,7 +20,6 @@ export const App: React.FC = () => {
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/projects/:id" element={<ProjectDetailPage />} />
               <Route path="/project/:id" element={<ProjectDetailPage />} />
-              <Route path="/posts" element={<PostsPage />} />
             </Routes>
           </Box>
           <Footer />

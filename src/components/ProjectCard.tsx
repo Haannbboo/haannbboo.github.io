@@ -3,7 +3,6 @@ import {
   Box,
   Heading,
   Text,
-  Tag,
   HStack,
   VStack,
   Button,
@@ -63,14 +62,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           )}
 
           <Box>
-            <HStack spacing={2} mb={2} wrap="wrap">
-              {project.tags.map((tag) => (
-                <Tag key={tag} size="sm" colorScheme="gray" variant="subtle">
-                  #{tag}
-                </Tag>
-              ))}
-            </HStack>
-
             <Heading
               as="h3"
               size="md"
@@ -86,7 +77,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </Box>
         </VStack>
 
-        <HStack justify="space-between" mt={6} pt={4} borderTop="1px solid" borderColor={borderColor}>
+        <HStack justify="space-between" mt={6} pt={4} borderTop="1px solid" borderColor={borderColor} wrap="wrap" rowGap={2}>
           <Button
             size="xs"
             variant="ghost"
@@ -99,7 +90,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             Read Article
           </Button>
 
-          <HStack spacing={2} onClick={(e) => e.stopPropagation()}>
+          <HStack spacing={2} wrap="wrap" onClick={(e) => e.stopPropagation()}>
             {project.github && (
               <ChakraLink href={project.github} isExternal>
                 <Button size="xs" leftIcon={<FaGithub />} variant="outline">

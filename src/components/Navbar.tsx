@@ -27,7 +27,6 @@ const MotionBox = motion(Box);
 const NAV_ITEMS = [
   { label: 'Home', path: '/' },
   { label: 'Projects', path: '/projects' },
-  { label: 'Posts', path: '/posts' },
 ];
 
 export const Navbar: React.FC = () => {
