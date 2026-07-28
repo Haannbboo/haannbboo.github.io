@@ -41,6 +41,34 @@ export const PROFILE_DATA = {
     email: "mailto:ghbhanbo@gmail.com",
   },
 
+  education: [
+    {
+      degree: "M.S. in Computer Science",
+      institution: "University of Illinois Urbana-Champaign",
+      orgUrl: "https://cs.illinois.edu/",
+      logo: "/assets/img/uiuc-logo.png",
+      period: "Aug 2024 – May 2026",
+      duration: "1 yr 10 mos",
+      location: "Champaign, Illinois, United States",
+      description: [
+        "Research Assistant @ iSENS lab, working on Bistatic mmWave Radar Sensing System.",
+        "Teaching Assistant @ CS425 Distributed Systems, CS438 Communication Networks, CS437 IoT, CS498 Cloud Computing.",
+      ],
+      tags: ["mmWave Radar", "IoT", "Distributed Systems", "Research", "Teaching"],
+    },
+    {
+      degree: "B.S. in Computer Science",
+      institution: "University of Illinois Urbana-Champaign",
+      orgUrl: "https://cs.illinois.edu/",
+      logo: "/assets/img/uiuc-logo.png",
+      period: "Aug 2020 – May 2024",
+      duration: "3 yrs 10 mos",
+      location: "Champaign, Illinois, United States",
+      description: [],
+      tags: ["Computer Science"],
+    },
+  ] as Education[],
+
   experiences: [
     {
       role: "Software Engineer",
@@ -49,36 +77,20 @@ export const PROFILE_DATA = {
       logo: "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/bytedance-color.svg",
       period: "Jul 2026 – Present",
       duration: "1 mo",
-      location: "Bellevue, Washington, United States · On-site",
+      location: "Bellevue, Washington, United States",
       employmentType: "Full-time",
       type: "fulltime",
       description: [],
       tags: [],
     },
     {
-      role: "Research And Teaching Assistant",
-      organization: "University of Illinois Urbana-Champaign",
-      orgUrl: "https://cs.illinois.edu/",
-      logo: "/assets/img/uiuc-logo.png",
-      period: "Aug 2024 – May 2026",
-      duration: "1 yr 10 mos",
-      location: "Champaign, Illinois, United States · On-site",
-      employmentType: "Full-time",
-      type: "research",
-      description: [
-        "RA @ iSENS lab, working on Bistatic mmWave Radar Sensing System.",
-        "TA @ CS425 Distributed Systems, CS438 Communication Networks, CS437 IoT, CS498 Cloud Computing.",
-      ],
-      tags: ["mmWave Radar", "IoT", "Distributed Systems", "Research", "Teaching"],
-    },
-    {
       role: "Research Engineer Intern",
-      organization: "ByteDance",
+      organization: "ByteDance Seed",
       orgUrl: "https://www.bytedance.com/",
       logo: "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/bytedance-color.svg",
       period: "May 2025 – Aug 2025",
       duration: "4 mos",
-      location: "Bellevue, Washington, United States · On-site",
+      location: "Bellevue, Washington, United States",
       employmentType: "Internship",
       type: "internship",
       description: [
@@ -94,7 +106,7 @@ export const PROFILE_DATA = {
       logo: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/nvidia.svg",
       period: "May 2024 – Aug 2024",
       duration: "4 mos",
-      location: "Santa Clara, California, United States · On-site",
+      location: "Santa Clara, California, United States",
       employmentType: "Internship",
       type: "internship",
       description: [
@@ -110,7 +122,7 @@ export const PROFILE_DATA = {
       logo: "https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/tencent-color.svg",
       period: "May 2023 – Aug 2023",
       duration: "4 mos",
-      location: "Shenzhen, Guangdong, China · On-site",
+      location: "Shenzhen, Guangdong, China",
       employmentType: "Internship",
       type: "internship",
       description: [
