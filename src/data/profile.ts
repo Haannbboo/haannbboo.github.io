@@ -31,7 +31,7 @@ export const PROFILE_DATA = {
   title: "Software Engineer @ ByteDance",
   avatar: "/assets/img/hanbo.png",
   location: "Bellevue, WA",
-  bio: "Software engineer and CS researcher with experience in ML systems, systems software, distributed systems, and IoT sensing. Currently at ByteDance Seed; previously interned at ByteDance Seed, NVIDIA, and Tencent.",
+  bio: "Software engineer and CS researcher with experience in ML systems, systems software, distributed systems, and IoT sensing. Currently at ByteDance; previously interned at ByteDance Seed, NVIDIA, and Tencent.",
   email: "ghbhanbo@gmail.com",
   socials: {
     github: "https://github.com/Haannbboo",
