@@ -181,3 +181,31 @@ export const PROFILE_DATA = {
     },
   ] as SkillCategory[],
 };
+
+const MONTH_INDEX: Record<string, number> = {
+  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+};
+
+function calcDuration(period: string): string {
+  const parse = (s: string) => {
+    const [mon, yr] = s.trim().split(' ');
+    return new Date(Number(yr), MONTH_INDEX[mon]);
+  };
+  const [start, endRaw] = period.split('–').map((s) => s.trim());
+  const end = endRaw === 'Present' ? new Date() : parse(endRaw);
+  const months = Math.max(
+    1,
+    (end.getFullYear() - parse(start).getFullYear()) * 12 +
+      (end.getMonth() - parse(start).getMonth()) + 1
+  );
+  const yrs = Math.floor(months / 12);
+  const mos = months % 12;
+  if (yrs === 0) return `${mos} mo${mos > 1 ? 's' : ''}`;
+  if (mos === 0) return `${yrs} yr${yrs > 1 ? 's' : ''}`;
+  return `${yrs} yr${yrs > 1 ? 's' : ''} ${mos} mo${mos > 1 ? 's' : ''}`;
+}
+
+for (const e of PROFILE_DATA.experiences) {
+  e.duration = calcDuration(e.period);
+}
