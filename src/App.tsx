@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ChakraProvider, Box } from '@chakra-ui/react';
 import { theme } from './theme/theme';
 import { Navbar } from './components/Navbar';
@@ -20,6 +20,7 @@ export const App: React.FC = () => {
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/projects/:id" element={<ProjectDetailPage />} />
               <Route path="/project/:id" element={<ProjectDetailPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Box>
           <Footer />
